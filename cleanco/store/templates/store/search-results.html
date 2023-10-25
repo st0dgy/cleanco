@@ -1,0 +1,32 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+    <h2>Пошук "{{ query }}"</h2>
+    <hr>
+
+    {% if products %}
+    <p class="items-found">Знайдено {{ product_count }} товарів.</p>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h5>
+                    <p class="card-text">Ціна: ₴ {{ product.price }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>За Вашим запитом нічого не було знайдено.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

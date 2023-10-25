@@ -1,0 +1,68 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+<main>
+  
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="pb-3 h5"> {{ category.name }} </div>
+
+
+      <hr>
+
+      <br>
+
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+        {% for product in products %}
+
+        <div class="col">
+          <div class="card shadow-sm">
+          <img class="img-fluid" alt="Responsive image" src="{{ product.image.url }}">
+
+            <div class="card-body">
+              <p class="card-text">
+                <a class="text-info text-decoration-none" href="{{ product.get_absolute_url }}"> {{ product.title }} </a>
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <h5> ₴ {{ product.price }} </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+  
+    <!-- Pagination Controls -->
+    <div class="container1 text-center">
+      <span class="step-links">
+          {% if products.has_previous %}
+              <a href="?page=1">&laquo; Перша</a>
+              <a href="?page={{ products.previous_page_number }}">Назад</a>
+          {% endif %}
+          <span class="current-page">{{ products.number }}</span>
+          {% if products.has_next %}
+              <a href="?page={{ products.next_page_number }}">Вперед</a>
+              <a href="?page={{ products.paginator.num_pages }}">Остання &raquo;</a>
+          {% endif %}
+      </span>
+  </div>
+  <p class="range-of-items">Показано {{ products.start_index }}-{{ products.end_index }} із {{ products.paginator.count }} товарів</p>
+</div>
+  </div>
+
+
+</main>
+
+{% endblock %}

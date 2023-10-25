@@ -1,0 +1,40 @@
+{% include "store/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<style>
+  body {
+    background-color: gray;
+  }
+</style>
+
+<body>
+  <br>
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h3> <i class="fa fa-address-book" aria-hidden="true"></i> &nbsp; Мої дані </h3>
+  </div>
+  <br>
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h4> Змінити дані облікового запису </h4>
+    <hr>
+    <form method="POST" autocomplete="off">
+      {% csrf_token %}
+      {{user_form.username|as_crispy_field}}
+      <br>
+      {{user_form.email|as_crispy_field}}
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary navbar-btn text-white"> &nbsp; Оновити дані </button>
+    </form>
+  </div>
+  <br>
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h4> Видалити обліковий запис </h4>
+    <hr>
+    <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'delete-account' %}"> Видалити </a>
+  </div>
+  <br>
+</body>
+
+{% endblock %}

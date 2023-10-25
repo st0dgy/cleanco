@@ -1,0 +1,42 @@
+.container1 {
+    margin-top: 20px;
+    text-align: center; /* Center-align the content within the pagination container */
+}
+
+/* Center-align the individual pagination links */
+.container1 a {
+    display: inline-block; /* Display links as inline-block elements to center them */
+    color: #007bff;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #007bff;
+    margin: 0 2px;
+}
+
+/* Style for the current page */
+.container1 .current-page {
+    display: inline-block; /* Display the current page as an inline-block element */
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    margin: 0 2px;
+}
+
+.container1 .disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+/* doesn't work */
+.items-found {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+.range-of-items {
+    font-size: 14px; 
+    color: #777;
+}

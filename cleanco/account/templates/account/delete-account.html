@@ -1,0 +1,29 @@
+{% include "store/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<style>
+  body {
+    background-color: gray;
+  }
+</style>
+
+<body>
+  <br>
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h3> Видалення облікового запису </h3>
+    <hr>
+    <form method="POST" autocomplete="off">
+      {% csrf_token %}
+      <p> Ви впевнені, що хочете видалити свій обліковий запис? Цю дію не можна відмінити. </p>
+      <button type="submit" class="btn btn-danger navbar-btn text-white"> &nbsp; Так, я впевнений(-а) </button>
+      <br> <br>
+      <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'profile-management' %}"> <i
+          class="fa fa-arrow-left" aria-hidden="true"> </i>&nbsp; Повернутися </a>
+    </form>
+  </div>
+  <br>
+</body>
+
+{% endblock %}

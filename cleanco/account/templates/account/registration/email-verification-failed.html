@@ -1,0 +1,25 @@
+{% include "store/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+  body {
+    background-color: gray;
+  }
+</style>
+
+<body>
+  <br>
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <div class="text-center">
+
+      <i class="fa fa-times fa-3x text-danger" aria-hidden="true"> </i>
+      <br><br>
+      <h5> <strong> На жаль, сталася помилка при верифікації Вашої електронної пошти. </strong> </h5>
+      <hr>
+      <p>Будь ласка, зв'яжіться з нами для вирішення цієї проблеми. </p>
+    </div>
+  </div>
+</body>
+
+{% endblock %}

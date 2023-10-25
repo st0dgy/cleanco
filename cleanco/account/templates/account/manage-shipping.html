@@ -1,0 +1,52 @@
+{% include "store/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    body {
+        background-color: gray;
+    }
+
+    #state {
+        padding: 10px;
+        /* Add some padding to make it visually appealing */
+        border: 1px solid #ccc;
+        /* Add a border */
+        border-radius: 5px;
+        /* Add rounded corners */
+        width: 100%;
+        /* Make it full width */
+    }
+</style>
+
+<body>
+    <br>
+    <div class="container bg-white shadow-md p-5 form-layout">
+        <h3> Адреса доставки </h3>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{ form.full_name|as_crispy_field }}
+            <br>
+            {{ form.phone|as_crispy_field }}
+            <br>
+            {{ form.email|as_crispy_field }}
+            <br>
+            {{ form.state|as_crispy_field }}
+            <br>
+            <!-- Поле для вводу міста -->
+            {{ form.city|as_crispy_field }}
+            <br>
+            <!-- Поле для вибору відділення -->
+            {{ form.warehouse_number|as_crispy_field }}
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary navbar-btn text-white w-100 p-2"> <i class="fa fa-plus"
+                    aria-hidden="true"></i>&nbsp; Додати адресу </button>
+        </form>
+    </div>
+    <br>
+</body>
+
+{% endblock %}
